@@ -15,6 +15,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var currencyPickerView: UIPickerView!
+    private var model = BusinessBo()
     let currencyArray = ["ARS","AUD","BRL","CAD","CNY","COP","EUR","GBP","HKD","IDR","ILS","INR","JPY","LRD","MXN","NOK","NZD","PLN","RON","RUB"
     ,"HUF","MZN","SVC"]
     let simbolArray = ["$","$","R$","$","¥","$","€","£","$","Rp","₪","₹","¥","$","$","kr","$","zł","lei","₽"
@@ -25,7 +26,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var finalURL: String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         currencyPickerView.delegate=self
         currencyPickerView.dataSource=self
     }
@@ -41,9 +41,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         return currencyArray[row]
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(currencyArray[row])
         strPrice = simbolArray[row]
-        print(simbolArray[row])
         finalURL=baseURL+currencyArray[row]
         getBitcoinData(url: finalURL!)
     }
@@ -53,7 +51,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         Alamofire.request(url, method: .get).responseJSON { (response) in
             if response.result.isSuccess{
                 let bitcoinJSON: JSON = JSON(response.result.value!)
-                self.updateBitCoinData(json:bitcoinJSON)
+                self.lblPrice.text = self.model.updateBitCoinData(json:bitcoinJSON, symbol: String(self.strPrice))
             }
             else{
                 print ("Error: \(response.result.error)")
@@ -61,27 +59,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             }
         }
         
-    }
-    
-    func updateBitCoinData(json:JSON){
-        if let bitcoinResult=json["ask"].double {
-            
-            strPrice = strPrice+FormatNumber(number: Double(bitcoinResult))
-            lblPrice.text=strPrice
-        }
-        else{
-            lblPrice.text="Servicio no Disponible"
-        }
-        strPrice = ""
-    }
-    
-    func FormatNumber(number:Double) -> String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = NumberFormatter.Style.decimal
-        numberFormatter.groupingSeparator = "."
-        let returnValue = numberFormatter.string(from: NSNumber(value:number))
-        
-        return returnValue!
     }
 }
 

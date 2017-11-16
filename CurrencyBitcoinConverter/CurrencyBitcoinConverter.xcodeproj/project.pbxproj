@@ -15,6 +15,7 @@
 		8DA0E9BA1FAAB251000DDBDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DA0E9B81FAAB251000DDBDD /* LaunchScreen.storyboard */; };
 		8DA0E9C21FAAB31D000DDBDD /* images.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8DA0E9C11FAAB31D000DDBDD /* images.jpg */; };
 		8DA0E9C41FAAB3DF000DDBDD /* Bitcoin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DA0E9C31FAAB3DF000DDBDD /* Bitcoin.png */; };
+		8DF9BBCC1FBD2FD6009E5713 /* BusinessBo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF9BBCB1FBD2FD6009E5713 /* BusinessBo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		8DA0E9BB1FAAB251000DDBDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DA0E9C11FAAB31D000DDBDD /* images.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpg; sourceTree = "<group>"; };
 		8DA0E9C31FAAB3DF000DDBDD /* Bitcoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bitcoin.png; sourceTree = "<group>"; };
+		8DF9BBCB1FBD2FD6009E5713 /* BusinessBo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessBo.swift; sourceTree = "<group>"; };
 		E01524D721401FE74FC1E99D /* Pods-CurrencyBitcoinConverter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyBitcoinConverter.release.xcconfig"; path = "Pods/Target Support Files/Pods-CurrencyBitcoinConverter/Pods-CurrencyBitcoinConverter.release.xcconfig"; sourceTree = "<group>"; };
 		E508E297A338672642B7147E /* Pods_CurrencyBitcoinConverter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CurrencyBitcoinConverter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -55,6 +57,7 @@
 		8DA0E9A31FAAB251000DDBDD = {
 			isa = PBXGroup;
 			children = (
+				8DF9BBCA1FBD2EF8009E5713 /* Business */,
 				8DA0E9AE1FAAB251000DDBDD /* CurrencyBitcoinConverter */,
 				8DA0E9AD1FAAB251000DDBDD /* Products */,
 				E60C6046EC25171BDCB584E1 /* Pods */,
@@ -83,6 +86,14 @@
 				8DA0E9BB1FAAB251000DDBDD /* Info.plist */,
 			);
 			path = CurrencyBitcoinConverter;
+			sourceTree = "<group>";
+		};
+		8DF9BBCA1FBD2EF8009E5713 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				8DF9BBCB1FBD2FD6009E5713 /* BusinessBo.swift */,
+			);
+			name = Business;
 			sourceTree = "<group>";
 		};
 		E60C6046EC25171BDCB584E1 /* Pods */ = {
@@ -229,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DA0E9B21FAAB251000DDBDD /* ViewController.swift in Sources */,
+				8DF9BBCC1FBD2FD6009E5713 /* BusinessBo.swift in Sources */,
 				8DA0E9B01FAAB251000DDBDD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,6 +405,7 @@
 				8DA0E9C01FAAB251000DDBDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
